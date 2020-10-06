@@ -1,0 +1,57 @@
+body {
+  background-color: #ecfbfc;
+
+}
+h1 {
+  text-align: center;
+}
+ li {
+  list-style-type: none;
+  display:inline;
+  padding: 20px;
+}
+.animalCard {
+  /* position: absolute; */
+  border: 1px solid black;
+  background-color: white;
+  width: 140px;
+  height: 130px;
+  border-radius:5px;
+}
+.animalBackCard {
+  border: 1px solid black;
+  background-color: white;
+  width: 140px;
+  height: 130px;
+  border-radius:5px;
+}
+
+
+.container{
+  width: 1300px;
+  height: 700px;
+  background-color: #ffc8bd;
+  margin:10% auto auto auto;
+
+  display:flex;
+  flex-direction: row;
+}
+/* .peach {
+  background: #235952;
+} */
+ /* .square {
+  display: inline-block;
+  border: 5px solid #235952;
+  width: 15%;
+  height: 18%;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-right: 4.60px;
+  margin-left: 4.60px;
+}  */
+.playLink {
+  text-decoration: none;
+  margin: auto;
+}
