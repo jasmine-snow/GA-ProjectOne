@@ -69,7 +69,7 @@ $(()=>{
 
  const $card = $('.animalBackCard').on('click', (event) => {
    console.log($(event.currentTarget).attr('src'))
-   $(event.currentTarget).replaceWith(chooseRandom().image)
+   $(event.currentTarget).attr('src', chooseRandom().image)
    console.log('hello')
  })
 
@@ -84,9 +84,9 @@ $(()=>{
 //replaceWith()
 //.attr('src', "")
 //.replaceWith($('.animalBackCard'))
-//remove()   // .replaceWith($('.animalBackCard'))
+//remove()   //.replaceWith().attr('src', (chooseRandom().image))
 
-//before($('.animalBackCard').hide());
+//before($('.animalBackCard').hide());   //
 
 
 
