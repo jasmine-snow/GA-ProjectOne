@@ -2,13 +2,6 @@ $(()=>{
 
 
 
-
-    /*===============
-    when squares are clicked they turn to into the
-    peach class. So I can use that to flip the cards!!
-    // =================*/
-    //   $(event.target).addClass('peach')
-  // }
   const animalsArray = [
     {animal: 'Elephant', image: './img-project/elephant.jpg', background:'./img-project/front-card.jpg'},
     {animal: 'Iguana', image: './img-project/iguana.jpg', background:'./img-project/front-card.jpg' },
@@ -50,28 +43,107 @@ $(()=>{
 
     let $showImage = $(`<div class="images"><img id="one" src="${animalsArray[i].image}" class="animalCard"/></div>`)
 
+
+/*make the background show when the page opens
+  make page show animals and shuffle once animals are loaded*/
+
     $showBackground.addClass('showBackground')
     $('.flip-card-front').append($showBackground)
+    // $('.playLink').on('click', (event) => {
+       //add this to a function that shuffles animal cards
 
-    $showImage.addClass('showImage')
-    $('.flip-card-back').append($showImage)
+    // })
+
+
+
+
+
+
+
+
+
+
+const $startGame = () => {
+      $showImage.addClass('showImage')
+      $('.flip-card-front').append($showImage)
+      $('#start').on('click', (event) => {
+
+      })
+      forEach(event.currentTarget(i))
+        $showImage.show();
+        $showBackground.hide();
+        $startGame()
+    };
+
+
+
+
+
+
+
+
+  // const hideAnimalImage = () => {
+  //   $("")
+  // }
+
 
  }
- const chooseRandom = () => {
-   let randomIndex = Math.floor(Math.random() * animalsArray.length)
-      return animalsArray[randomIndex]
-     //Math.floor(Math.Random() * animalsArray[i].image.length )
-     console.log(randomIndex)
+ // const chooseRandom = () => {
+ //     let randomIndex = Math.floor(Math.random() * animalsArray.length)
+ //        return animalsArray[randomIndex]
 
-}
-    // console.log(chooseRandom().image)
+      console.log(randomIndex)
+    let addClassToRandom = document.querySelector(chooseRandom());
+    addClassToRandom.classList.add("chooseRandom");
+}      //console.log(chooseRandom().image)
 
 
  const $card = $('.animalBackCard').on('click', (event) => {
    console.log($(event.currentTarget).attr('src'))
-   $(event.currentTarget).attr('src', chooseRandom().image)
-   console.log('hello')
+   $(event.currentTarget).toggleClass('.chooseRandom')
+   console.log($(event.currentTarget).attr('src', chooseRandom().image))
  })
+
+
+//.attr('src', chooseRandom().image)
+
+
+
+
+
+ //
+ // const $shuffleCards = $('#start').on('click', (event) => {
+ //   for (let i = 0; i <= 1; i++) {
+ //     $('#start').click(function() {
+ //       $('.chooseRandom').toggle('slow', function() {
+ //          shuffleCards()
+ //       })
+ //     })
+ //
+ //   }
+ // })
+
+
+
+
+/*
+find a way to show all animal cards in the beggining of the game
+shuffle all of the cards
+set timer
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
 
 
 
@@ -87,13 +159,6 @@ $(()=>{
 //remove()   //.replaceWith().attr('src', (chooseRandom().image))
 
 //before($('.animalBackCard').hide());   //
-
-
-
-
-
-
-
 
 
 
