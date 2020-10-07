@@ -5,11 +5,21 @@ body {
 h1 {
   text-align: center;
 }
- li {
+.showBackground {
+ list-style-type: none;
+ display:inline;
+ padding: 20px;
+}
+.showImage {
+ list-style-type: none;
+ display:inline;
+ padding: 20px;
+}
+ /* li {
   list-style-type: none;
   display:inline;
   padding: 20px;
-}
+} */
 .animalCard {
   /* position: absolute; */
   border: 1px solid black;
@@ -25,7 +35,6 @@ h1 {
   height: 130px;
   border-radius:5px;
 }
-
 
 .container{
   width: 1300px;
