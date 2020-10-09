@@ -20,7 +20,12 @@
   *that would individually assign each name an '0' & an '1' example: cat0 & cat1
 
 ### Installation instructions
-  * 
+  * clone 
 
 ### Unsolved problems
-  *Due to my 
+  *The game does not keep score or alert the winner when they have one
+  
+### Future Features
+ *Timer
+ *Alerts
+ *Styling 
