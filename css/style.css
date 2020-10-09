@@ -42,8 +42,20 @@ h1 {
 
 }
 
+.frontPageImage {
+  width: 800px;
+  height: 500px;
+  margin-top: 20px;
+  margin: auto;
 
-.container{
+  padding-top: 15px;
+  padding-bottom: 10px;
+
+  justify-content: space-around;
+  display:flex;
+  flex-direction: row;
+}
+.container {
   width: 1152px;
   height: 715px;
   background-color: #ffc8bd;
@@ -57,21 +69,6 @@ h1 {
   display:flex;
   flex-direction: row;
 }
-/* .peach {
-  background: #235952;
-} */
- /* .square {
-  display: inline-block;
-  border: 5px solid #235952;
-  width: 15%;
-  height: 18%;
-  padding-left: 1px;
-  padding-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-right: 4.60px;
-  margin-left: 4.60px;
-}  */
 .playLink {
   text-decoration: none;
   margin: auto;

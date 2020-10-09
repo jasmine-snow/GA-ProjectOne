@@ -1,3 +1,50 @@
+/*GA lecture*/
+// let handOfCards = []
+
+// int i;
+// const = newArray = (animals1, animals2) => {
+//   int makeNew [] = new int[n + 1];
+//   for (i = 0; i &lt; n; i++)
+//   newArray[i] = myArray[i];
+//   return mre
+// }
+// const playHand = (cards) => {
+//     handOfCards.push(cards)
+//     console.log('handOfCards', handOfCards)
+//   if (handOfCards.length == 2) {
+//     handOfCards.empty(cards)
+//
+//   }
+//   handOfCards = []
+// }
+// console.log(animal)
+// const checkHand = (event) => {
+//   if (animal === animal && handOfCards == 0) { // else if cards are are == and handOfCards is empty remove cards
+//       animal.hide()
+//   } else if  (animal !== animal)
+//     console.log('try again')
+//   }
+
+// $(document).on('click', function(event){
+//   for (let i = 0; i < handOfCards.length; i++) {
+//     if (event.currentTarget.id == handOfCards[i].id) {
+//     console.log('its a match!')
+//   } else {
+//     console.log('its not a match!')
+//   }
+// }
+// })
+
+// $(document).on('click', function(event){
+//   for (let i = 0; i < handOfCards.length; i++) {
+//     if (event.currentTarget.id == handOfCards[i].id) {
+//     console.log('its a match!')
+//   } else {
+//     console.log('its not a match!')
+//   }
+// }
+// })
+
 
 $(()=>{
 
@@ -35,245 +82,109 @@ $(()=>{
     {animal: 'Squirrel', image: './img-project/squirrel.jpg', background:'./img-project/front-card.jpg'},
 
   ];
+  /*==========
+    shuffle/ /*============
+      random generator from w3Schools
+    =============*/
 
+animalsArray.sort(function(a, b){return 0.5 - Math.random()});
 
-  for (let i = 0; i < animalsArray.length; i++) {
-    // let $div = $('<div>')
-    let $showBackground = $(`<div class="background-img"><img data-num=${i} id="${i}" src="${animalsArray[i].background}" class="animalBackCard"/></div>`)
+/*===========
+==============*/
+  const get_animal_name = (unique_id) => {
+     let animal = ""
+     for (let i = 0; i < unique_id.length; i+=1) {
+          if (unique_id[i].toLowerCase() != unique_id[i].toUpperCase()) {
+              animal+=unique_id[i]
+          }
+          else {
+              return animal
+          }
+     }
+     return animal
+  }
 
-    // let $showImage = $(`<div class="images"><img id="${i}" class="animalCard"/></div>`)
-
-    $showBackground.addClass('showBackground')
-    $('.flip-card-front').append($showBackground)
-/*make the background show when the page opens
-  make page show animals and shuffle once animals are loaded*/
- }
-
-
-
-    for (let i = 0; i < animalsArray.length; i++) {
-    $(this).attr('src', animalsArray[i].background)
-    console.log($(`#${i}`))
-    $(`#${i}`).on("click", (event) => {
-      console.log(event.currentTarget)
-      $(event.target).attr('src', animalsArray[i].image)
-      // playHand()
-    })
+  const getCounter = () => {
+      const counter = {}
+      for(let i = 0; i < animalsArray.length; i+=1) {
+        counter[animalsArray[i].animal] = 0
+      }
+      return counter;
     }
-  // })
+
+  const counter = getCounter()
+    for (let i = 0; i < animalsArray.length; i++) {
+    // let $div = $('<div>')
+    let unique_id = animalsArray[i].animal + counter[animalsArray[i].animal]
+    let $showBackground = $(`<div class="background-img"><img data-num=${i}  id="${unique_id}" src="${animalsArray[i].background}" class="animalBackCard"/></div>`)
+    counter[animalsArray[i].animal]+=1
+
+      $showBackground.addClass('showBackground')
+      $('.flip-card-front').append($showBackground)
+  }
+
+      $(".animalBackCard").on("click", (event) => {
+        let id=event.target.id
+        let animal = get_animal_name(id)
+        let animalObject = animalsArray.find( element => element.animal === animal)
+          $(event.target).attr('src', animalObject.image)
+        // playHand($(event.target))
+      // sendAnalytics = function(message) {let animal = get_animal_name(id)}
+
+      const playHand = (cards) => {
+      if ($(event.currentTarget.id).length == 2) {
+        if ($(event.currentTarget.id).first().data('animal') == $(event.currentTarget.id).last().data('animal')) {
+          $(event.currentTarget.id).each(function(){
+            $(this).animate({opacity: 0})
+          });
+        } else {
+          //flip
+        }
+        $(event.currentTarget.id).each(function() {
+          $(this).remove(animalObject)
+        })
+      }
+    }
+
+    })
+    // function checkId(newId) {
+    //   let twoOfAKind = animal;
+    //   for (let key in animalsArray.length)
+    //     if ($(event.target.id) == $(event.target.id)
+    // }
+    //
+    // $(document).on('click', function(event){
+    //   for (let i = 0; i < handOfCards.length; i++) {
+    //     if (event.currentTarget.id == handOfCards[i].id) {
+    //     console.log('its a match!')
+    //   } else {
+    //     console.log('its not a match!')
+    //   }
+    // }
+    // })
 
 
-// key value functioning correctly
-// but the data num is not updating.
+  /*======================================
+    when hand of cards is fixed I function below should work.
+    if function below works
+    - turn console.logs into alerts or append message to the body
+    - find a way to remove the cards
+    - and leave cards if they don't match
 
+    until that solution is found I will move on and make a
+    win game feature.
+    ==========================================*/
 
-  // const handOfCards = []
-  //
-  //
-  // const playHand = () => {
-  //   if (handOfCards.length === 2) {
-  //     console.log('checking', handOfCards)
-  //   } else {
-  //     console.log('adding to', handOfCards)
-  //   }
-  // }
-  //
-  // const chooseRandomToStart = () => {
-  //     let randomIndex = Math.floor(Math.random() * animalsArray.length)
-  //        return animalsArray[randomIndex]
-  //        console.log(randomIndex)
-  //   }
-  //   chooseRandomToStart()
-  //
-
-
-
-
-
+/* ====================
+finish winGame function
+when animalsArray is empty alert you win!
+===================*/
+// const $winGame = () => {
+//   for (let i = 0; i < 1; i++) {
+//     //if there are no cards left then say 'you win!'
+//     if ()
+//   }
+// }
+//
+//
 });
-
-
-
-
-
-//https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript
-// source
-// while (currentIndex !== 0) {
-//   randomIndex = Math.floor(Math.random() * currentIndex);
-//   currentIndex -= 1;
-//   temporaryValue = animalsArray[i].background[currentIndex];
-//   animalsArray[i].background[currentIndex] = animalsArray[i].background[randomIndex];
-//   animalsArray[i].background[randomIndex] = temporaryValue;
-//
-// }
-//  return animalsArray[i].background
-
-
-
-// why does this show only one image
-
-
-
-
-
-  // $('.animalBackCard').each(function(key, value) {
-  //   console.log("key", key, "value", {value})
-  //   for (let i = 0; i < animalsArray.length; i++) {
-  //   .attr('src', animalsArray[i].image))
-  //   }
-  // })
-
-
-
-
-
-
-
-//.attr('src', chooseRandom().image)//chooseRandom().image
-
-
-
-
-
- //
- // const $shuffleCards = $('#start').on('click', (event) => {
- //   for (let i = 0; i <= 1; i++) {
- //     $('#start').click(function() {
- //       $('.chooseRandom').toggle('slow', function() {
- //          shuffleCards()
- //       })
- //     })
- //
- //   }
- // })
-
-
-
-
-/*
-find a way to show all animal cards in the beggining of the game
-shuffle all of the cards
-set timer
-
-
-
-
-*/
-
-
-
-//
-// =========
-// const $startGame = () => {
-//       $showImage.addClass('showImage')
-//       $('.flip-card-front').append($showImage)
-//       $('#start').on('click', (event) => {
-//
-//       })
-//       forEach(event.currentTarget(i))
-//         $showImage.show();
-//         $showBackground.hide();
-//         $startGame()
-//     };
-
-
-
-
-
-
-// $('.animalBackCard').each(function(key, value) {
-//   console.log("key", key, "value", {value})
-
-
-
-
-
-
-///find out if this is correct and add toggle
-/// $(event.currentTarget)
-//replaceWith()
-//.attr('src', "")
-//.replaceWith($('.animalBackCard'))
-//remove()   //.replaceWith().attr('src', (chooseRandom().image))
-
-//before($('.animalBackCard').hide());   //
-
-
-
-//
-//  for (let i = 0; i < 30; i++) {
-//    // let $div = $('<div>')
-//    let $listName = $(`<li><img src="${animalsArray[i].image}" class="animalCard"/></li>`)
-//    let $listWord = $(`<li class="animalBackCard"> ${animalsArray[i].animal} </li>`)
-//
-//    $listName.addClass('listName')
-//    $('.img-container').append($listName)
-//
-//    $listWord.addClass('listWord')
-//    $('.word-container').append($listWord)
-//
-//
-//
-// }
- //
- // $listName.addClass('listName')
- // $('.img-container').append($listName)
- //
- // $listWord.addClass('listWord')
- // $('.img-container').append($listWord)
-  //
-  // $('.animalCard').click(function() {
-  //   $('.animalBackCard').toggle('.animalCard');
-  // })
-
-
-    // for (let i = 0; i <= animalsArray[i].length; i++) {
-    //   $('.animalCard').click(function() {
-    //     $('.img-container').toggle('slow', function() {
-    //
-    //     })
-    //   })
-    //
-    // }
-
-  //
-  // /*great for shuffle effect */
-    // for (let i = 0; i <= 1; i++) {
-    //   $('.animalCard').click(function() {
-    //     $('.img-container').toggle('slow', function() {
-    //
-    //     })
-    //   })
-    //
-    // }
-
-  // const changeColor = (event) => {
-  //     $(event.target).addClass('.animalCard')
-  // }
-  //
-
-  // const flipCards = () => () {
-  //   $(document).ready(function() {
-  //     $('.listName').click(function() {
-  //       $('.listWord').toggle();
-  //     })
-  //   })
-  //  }
-  // {animal: 'Donky', image: './img-project/donky.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Tiger', image: './img-project/tiger.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'WILD CARD', image: './img-project/wildCard.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Horse', image: './img-project/horse.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Octopus', image: './img-project/octopus.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Turtle', image: './img-project/turtle.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Snake', image: './img-project/snake.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Whale', image: './img-project/whale.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Beaver', image: './img-project/beaver.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Mouse', image: './img-project/Mouse.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Chicken', image: './img-project/chicken.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Frog', image: './img-project/frog.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Cow', image: './img-project/cow.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Seal', image: './img-project/seal.jpg', background:'./img-project/front-card.jpg'},
-  // {animal: 'Goat', image: './img-project/goat.jpg', background:'./img-project/front-card.jpg'}
-
-
-  // $('div').on('click', gameBoard)
