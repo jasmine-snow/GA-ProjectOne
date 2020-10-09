@@ -1,8 +1,8 @@
 # GA-ProjectOne
 ## Match that Animal Game
 
-
-![alt text](/desktop/wireframe.png "WireFrame")
+#Link to wireframe below
+https://cacoo.com/diagrams/xgoKbEsZKpDtPIzB/6DFB2
 
 ### Key Features
   * Match that animal is a simple matching game designed to help children learn their animals
