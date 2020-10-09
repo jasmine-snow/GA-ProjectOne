@@ -13,11 +13,11 @@
   
 ### Technologies Used?
   * The functionality I used for my game included:  
-      *An array of objects to store the names, front-image and back-image of the card 
-      *Used a simple sort Method to shuffle the cards unpon loading the page
-      *Due to the object of arrays I had to separate each item by giving them unique_id's
-        *Since the names, front-image, and back-image were in individual objects, I needed two loops 
-        that would individually assign each name an '0' & an '1' example: cat0 & cat1
+  *An array of objects to store the names, front-image and back-image of the card 
+  *Used a simple sort Method to shuffle the cards unpon loading the page
+  *Due to the object of arrays I had to separate each item by giving them unique_id's
+  *Since the names, front-image, and back-image were in individual objects, I needed two loops 
+  *that would individually assign each name an '0' & an '1' example: cat0 & cat1
 
 ### Installation instructions
   * 
